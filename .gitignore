@@ -1,3 +1,5 @@
 /venv/
 /__pycache__/
 /app/__pycache__/
+/app/main/__pycache__/
+/migrations/__pycache__/

@@ -1,10 +1,11 @@
-from app import app
+from .. import app
 from flask import render_template
-from forms import RegisterForm, LoginForm
+from app.main.forms import RegisterForm, LoginForm
 
 
 
-@app.route('/', method=['GET', 'POST'], strict_slashes=False)
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
     name = None
     form = RegisterForm()
@@ -14,12 +15,12 @@ def index():
     return render_template('index.html', form=form, name=name)
 
 
-@app.route("/about_us", strict_lashes=False)
+@app.route("/about_us")
 def about_us():
-    return
+    return "<h1>About Us</h1>"
 
 
-@app.route("/donations", strict_lashes=False)
+@app.route("/donations")
 def donations():
     return
 
