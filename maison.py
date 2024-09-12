@@ -8,6 +8,6 @@ def make_shell_context():
                 Adoption=Adoption, AdoptedChild=AdoptedChild, MedicalRecord=MedicalRecord)
 
 if __name__ == "__main__":
-    app.run(debug=1)
+    app.run(debug=True)
 
 
