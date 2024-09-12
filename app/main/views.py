@@ -12,12 +12,24 @@ def index():
     if form.validate_on_submit():
         name = form.first_name.data
         form.first_name.data = ''
-    return render_template('index.html', form=form, name=name)
+    return render_template('maison/index.html', form=form, name=name)
 
 
 @app.route("/about_us")
 def about_us():
     return "<h1>About Us</h1>"
+
+
+@app.route("/register")
+def register():
+    form = RegisterForm()
+    return 
+
+
+@app.route("/login")
+def login():
+    form = LoginForm()
+    return
 
 
 @app.route("/donations")
