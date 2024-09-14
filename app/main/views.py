@@ -1,5 +1,5 @@
-from .. import app
-from flask import render_template
+from .. import app, bootstrap
+from flask import render_template, url_for
 from app.main.forms import RegisterForm, LoginForm
 
 

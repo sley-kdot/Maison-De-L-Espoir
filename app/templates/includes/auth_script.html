@@ -1,0 +1,21 @@
+<!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='bk/vendor/apexcharts/apexcharts.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bk/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bk/vendor/chart.js/chart.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bk/vendor/echarts/echarts.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bk/vendor/quill/quill.min.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename= 'bk/vendor/simple-datatables/simple-datatables.js') }}"></script> -->
+<!-- Template Main JS File -->
+<script src="{{ url_for('static', filename='bk/js/main1.js') }}"></script>
+<script src="{{ url_for('static', filename='bk/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bk/vendor/DataTables/datatables.min.js') }}"></script>
+<script>
+	$(document).ready(function () {
+		$('#myTable').DataTable({
+			dom: 'Bfrtip',
+			buttons: ['print', 'pdf', 'csv'],
+		})
+	})
+</script>
+
+<script src="{{ url_for('static', filename='bk/js/close.js') }}"></script>
