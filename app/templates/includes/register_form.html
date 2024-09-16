@@ -1,0 +1,122 @@
+<form class="row g-3 needs-validation" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="col-md-4 col-lg-12">
+        <!-- <label for="firstname" class="form-label">Firstname</label> -->
+        {{ form.first_name.label(class="form-control-label") }}
+        {{ form.first_name(class="form-control form-control-lg") }}
+        <!-- <div class="alert alert-danger mt-2" role="alert">
+            {{ form.first_name.errors }}
+        </div> -->
+
+        <div class="invalid-feedback">Please, enter your Firstname!</div>
+    </div>
+
+    <div class="col-md-4 col-lg-12">
+        {{ form.middle_name.label(class="form-control-label") }}
+        {{ form.middle_name(class="form-control form-control-lg") }}
+  
+        <!-- <div class="alert alert-danger mt-2" role="alert">
+  
+        </div> -->
+    </div>
+
+    <div class="col-md-4 col-lg-12">
+        {{ form.last_name.label(class="form-control-label") }}
+        {{ form.last_name(class="form-control form-control-lg") }}
+        <!-- <div class="alert alert-danger mt-2 " role="alert">
+
+        </div> -->
+        <div class="invalid-feedback">Please, enter your Lastname!</div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        {{ form.email.label(class="form-control-label") }}
+        {{ form.email(class="form-control form-control-lg") }}  
+        <div class="input-group has-validation">
+        <!-- <span class="input-group-text" id="inputGroupPrepend">@</span> -->
+            <!-- <div class="alert alert-danger mt-2" role="alert">
+            
+            </div> -->
+        </div>
+        <div class="invalid-feedback">Please, enter a valid email address!</div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        {{ form.occupation.label(class="form-control-label") }}
+        {{ form.occupation(class="form-control form-control-lg") }}  
+        <!-- <div class="alert alert-danger mt-2" role="alert">
+        
+        </div> -->
+        <div class="invalid-feedback">Please, enter your occupation!</div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+        {{ form.state.label(class="form-control-label") }}
+        {{ form.state(class="form-control") }}  
+        <!-- <div class="alert alert-danger mt-2" role="alert">
+
+        </div> -->
+    </div>
+    <div class="col-md-4 col-sm-12">
+        {{ form.gender.label(class="form-control-label") }}
+        {{ form.gender(class="form-control form-contrl-lg") }}  
+    </div>
+    <div class="col-md-4 col-sm-12">
+        {{ form.marital_status.label(class="form-control-label") }}
+        {{ form.marital_status(class="form-control form-control-lg") }}
+
+        <!-- <div class="alert alert-danger mt-2" role="alert">
+
+        </div> -->
+    </div>
+    <div class="col-md-8 col-lg-12">
+        {{ form.address.label(class="form-control-label") }}
+        {{ form.address(class="form-control") }}  
+
+        <!-- <div class="alert alert-danger mt-2" role="alert">
+
+        </div> -->
+    </div>
+    <div class="col-md-6 col-sm-12">
+        {{ form.phone.label(class="form-control-label") }}
+        {{ form.phone(class="form-control form-control-lg") }}
+        <!-- <div class="alert alert-danger mt-2" role="alert">
+
+        </div> -->
+    </div>
+    <div class="col-md-6 col-sm-12">
+        {{ form.nin.label(class="form-control-label") }}
+        {{ form.nin(class="form-control form-control-lg") }}
+
+        <!-- <div class="alert alert-danger mt-2" role="alert">
+
+        </div> -->
+        <div class="invalid-feedback">Please, enter a valid email address!</div>
+    </div>
+
+    <div class="col-md-6 col-lg-12">
+        {{ form.password.label(class="for-control-label") }}
+        <div class="input-group has-validation">
+            {{ form.password(class="form-control form-control-lg", id="id_password")}}
+            <span class="input-group-text " id="inputGroupPrepend">
+                <span class="fa fa-eye-slash" id="tooglePassword" style="cursor: pointer;"></span>
+            </span>
+            <!-- <div class="alert alert-danger mt-2" role="alert">
+            </div> -->
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-12">
+        {{ form.confirm_password.label(class="form-control-label") }}
+        <div class="input-group has-validation">
+            {{ form.confirm_password(class="form-control form-control-lg", id="id_password")}}
+            <span class="input-group-text " id="inputGroupPrepend">
+                <span class="fa fa-eye-slash" id="tooglePassword" style="cursor: pointer;"></span>
+            </span>
+            <!-- <div class="alert alert-danger mt-2" role="alert">
+            </div> -->
+        </div>
+    </div>
+    <div class="form-group col-12">
+        {{ form.submit(class="btn btn-primary w-100") }}
+    </div>
+    <div class="col-12 text-center mt-4">
+        <p class="small mb-0">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+    </div>
+</form>

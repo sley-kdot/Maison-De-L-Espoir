@@ -9,7 +9,7 @@ BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
-app.config['SECRET_KEY'] = 'hard to guess string'
+app.config['SECRET_KEY'] = 'e5557f29e44450da7d47cae85f889679'
 app.config['SQLALCHEMY_DATABASE_URI'] =\
     'sqlite:///' + os.path.join(BASEDIR, 'db.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
