@@ -18,13 +18,13 @@ def about_us():
     return "<h1>About Us</h1>"
 
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
     form = RegisterForm()
     return render_template("auth/register.html", form=form)
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
     return render_template("auth/login.html", form=form)
