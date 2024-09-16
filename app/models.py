@@ -16,7 +16,7 @@ class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(100), nullable=False)
-    middle_name = db.Column(db.String(100))
+    middle_name = db.Column(db.String(100), nullable=True)
     last_name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, index=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
@@ -24,7 +24,6 @@ class User(db.Model):
     address = db.Column(db.Text, nullable=False)
     occupation = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(64), nullable=False)
-    lga = db.Column(db.String(64), nullable=False)
     phone_num = db.Column(db.String(11), nullable=False)
     nin = db.Column(db.Integer, unique=True)
     marital_status = db.Column(db.String(20))
@@ -47,8 +46,10 @@ class Staff(db.Model):
     state = db.Column(db.String(100))
     lga = db.Column(db.String(100))
     gender = db.Column(db.Enum("Male", "Female", name="gender_names"), nullable=False)
-    phone_num = db.Column(db.String(100))
-    address = db.Column(db.String(100))
+    phone_num = db.Column(db.String(100), unique=True)
+    address = db.Column(db.String(100), nullable=False)
+    nin = db.Column(db.Integer, unique=True, nullable=False)
+    marital_status = db.Column(db.String(20), nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=False)
 
@@ -59,9 +60,9 @@ class Staff(db.Model):
 class Child(db.Model):
     __tablename__ = "child"
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(225), unique=True)
-    middle = db.Column(db.String(100))
-    last_name =db.Column(db.String(225), unique=True)
+    first_name = db.Column(db.String(225), nullable=False)
+    middle = db.Column(db.String(100), nullable=True)
+    last_name =db.Column(db.String(225), nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     status = db.Enum("adopted", "unadopted", name="child_status")
     date_of_birth = db.Column(db.Date)
