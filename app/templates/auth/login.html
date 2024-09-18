@@ -21,6 +21,7 @@
                     </div><!-- End Logo -->
                 <div class="card mb-3">
                 <div class="card-body">
+                    {% include "includes/messages.html" %}
                     <div class="pt-4 pb-2">
                             <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
                             <p class="text-center small">Input Credentials to login</p>
@@ -52,6 +53,7 @@
                         <div class="col-12 text-center mt-4">
                             <p class="small mb-0">Don't have account? <a href="{{ url_for('register')}}">Create an account</a></p>
                         </div>
+                        
                     </form>
                 </div>
               </div>

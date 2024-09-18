@@ -7,7 +7,7 @@ class RegisterForm(FlaskForm):
     first_name = StringField('First Name', validators=[DataRequired()], render_kw={"placeholder": "Enter your First Name"})
     middle_name = StringField('Middle Name', render_kw={"placeholder": "Enter your Middle Name"})
     last_name = StringField('Last Name', validators=[DataRequired()], render_kw={"placeholder": "Enter your Last Name"})
-    email = EmailField('Email', validators=[DataRequired(), Email()], render_kw={"placeholder": "Enter your Email"})
+    email = EmailField('Email', validators=[DataRequired(), ], render_kw={"placeholder": "Enter your Email"})
     password = PasswordField('Password', validators=[DataRequired()], render_kw={"placeholder": "Enter a Password"})
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')], render_kw={"placeholder": "Confirm Password"})
     gender = SelectField('Gender', choices=[('M', 'Male'), ('F', 'Female')], validators=[DataRequired()])
