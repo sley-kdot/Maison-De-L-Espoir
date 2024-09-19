@@ -28,7 +28,8 @@ class User(db.Model):
     nin = db.Column(db.Integer, unique=True)
     marital_status = db.Column(db.String(20))
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     child = db.relationship("Adoption", backref="user")
 
@@ -51,6 +52,8 @@ class Staff(db.Model):
     nin = db.Column(db.Integer, unique=True, nullable=False)
     marital_status = db.Column(db.String(20), nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=False)
 
     def __repr__(self):
@@ -67,6 +70,8 @@ class Child(db.Model):
     status = db.Enum("adopted", "unadopted", name="child_status")
     date_of_birth = db.Column(db.Date)
     date_admitted = db.Column(db.Date)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
     medical_record = db.relationship("MedicalRecord", backref="child")
     adoption = db.relationship("Adoption", uselist=False,  backref="child")
     def __repr__(self):
@@ -74,7 +79,7 @@ class Child(db.Model):
 
 
 class Adoption(db.Model):
-    __table__name = "adoption"
+    __tablename__ = "adoption"
     id = db.Column(db.Integer, primary_key=True)
     child_id = db.Column(db.Integer, db.ForeignKey('child.id'))
     adoptive_parent_name = db.Column(db.String(255), nullable=False)

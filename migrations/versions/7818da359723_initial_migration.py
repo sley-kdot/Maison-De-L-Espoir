@@ -1,8 +1,8 @@
 """initial migration
 
-Revision ID: 4f3c9f937284
+Revision ID: 7818da359723
 Revises: 
-Create Date: 2024-09-07 16:49:46.055060
+Create Date: 2024-09-19 03:09:13.433095
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4f3c9f937284'
+revision = '7818da359723'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,15 +28,15 @@ def upgrade():
     )
     op.create_table('child',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('first_name', sa.String(length=225), nullable=True),
+    sa.Column('first_name', sa.String(length=225), nullable=False),
     sa.Column('middle', sa.String(length=100), nullable=True),
-    sa.Column('last_name', sa.String(length=225), nullable=True),
+    sa.Column('last_name', sa.String(length=225), nullable=False),
     sa.Column('image_file', sa.String(length=20), nullable=False),
     sa.Column('date_of_birth', sa.Date(), nullable=True),
     sa.Column('date_admitted', sa.Date(), nullable=True),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('first_name'),
-    sa.UniqueConstraint('last_name')
+    sa.Column('created_at', sa.DateTime(), nullable=False),
+    sa.Column('updated_at', sa.DateTime(), nullable=False),
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('roles',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -61,11 +61,17 @@ def upgrade():
     sa.Column('lga', sa.String(length=100), nullable=True),
     sa.Column('gender', sa.Enum('Male', 'Female', name='gender_names'), nullable=False),
     sa.Column('phone_num', sa.String(length=100), nullable=True),
-    sa.Column('address', sa.String(length=100), nullable=True),
+    sa.Column('address', sa.String(length=100), nullable=False),
+    sa.Column('nin', sa.Integer(), nullable=False),
+    sa.Column('marital_status', sa.String(length=20), nullable=False),
     sa.Column('image_file', sa.String(length=20), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=False),
+    sa.Column('updated_at', sa.DateTime(), nullable=False),
     sa.Column('role_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['role_id'], ['roles.id'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('nin'),
+    sa.UniqueConstraint('phone_num')
     )
     with op.batch_alter_table('staff', schema=None) as batch_op:
         batch_op.create_index(batch_op.f('ix_staff_email'), ['email'], unique=True)
@@ -81,12 +87,12 @@ def upgrade():
     sa.Column('address', sa.Text(), nullable=False),
     sa.Column('occupation', sa.String(length=100), nullable=False),
     sa.Column('state', sa.String(length=64), nullable=False),
-    sa.Column('lga', sa.String(length=64), nullable=False),
     sa.Column('phone_num', sa.String(length=11), nullable=False),
     sa.Column('nin', sa.Integer(), nullable=True),
     sa.Column('marital_status', sa.String(length=20), nullable=True),
     sa.Column('image_file', sa.String(length=20), nullable=False),
-    sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.Column('created_at', sa.DateTime(), nullable=False),
+    sa.Column('updated_at', sa.DateTime(), nullable=False),
     sa.Column('role_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['role_id'], ['roles.id'], ),
     sa.PrimaryKeyConstraint('id'),
