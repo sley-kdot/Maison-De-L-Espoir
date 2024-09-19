@@ -1,10 +1,10 @@
 state=[
-    ('Ab', 'Abia'),
-    ('Ad', 'Adamawa'),
-    ('Ak', 'Akwa-Ibom'),
-    ('An', 'Anambara'),
-    ('Bau', 'Bauchi'),
-    ('Bay', 'Bayelsa'),
-    ('Ben', 'Benue'),
-    ('Bor', 'Borno')
+    ('Abia', 'Abia'),
+    ('Adamawa', 'Adamawa'),
+    ('Akwa-Ibom', 'Akwa-Ibom'),
+    ('Anambara', 'Anambara'),
+    ('Bauchi', 'Bauchi'),
+    ('Bayelsa', 'Bayelsa'),
+    ('Benue', 'Benue'),
+    ('Borno', 'Borno')
 ]

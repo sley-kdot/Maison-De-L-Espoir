@@ -19,6 +19,9 @@
                             </a>
                         </h2>
                     </div><!-- End Logo -->
+                    <div class="alert alert-success" role="alert">
+                        {% include "includes/messages.html" %}
+                        </div>
                 <div class="card mb-3">
                 <div class="card-body">
                     <div class="pt-4 pb-2">
@@ -52,6 +55,7 @@
                         <div class="col-12 text-center mt-4">
                             <p class="small mb-0">Don't have account? <a href="{{ url_for('register')}}">Create an account</a></p>
                         </div>
+                        
                     </form>
                 </div>
               </div>
